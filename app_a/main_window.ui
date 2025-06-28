@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>400</width>
+    <height>300</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Application A</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QVBoxLayout" name="verticalLayout">
+    <item>
+     <layout class="QHBoxLayout" name="horizontalLayout">
+      <item>
+       <widget class="QLabel" name="label">
+        <property name="text">
+         <string>Period T:</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLineEdit" name="periodLineEdit"/>
+      </item>
+      <item>
+       <widget class="QPushButton" name="applyPeriodButton">
+        <property name="text">
+         <string>Применить период Т</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </item>
+    <item>
+     <widget class="QPushButton" name="startBButton">
+      <property name="text">
+       <string>Запуск приложения B</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QPushButton" name="terminateBButton">
+      <property name="text">
+       <string>Терминация приложения B</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QPushButton" name="startCButton">
+      <property name="text">
+       <string>Запуск приложения C</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QPushButton" name="terminateCButton">
+      <property name="text">
+       <string>Терминация приложения C</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QPushButton" name="beepButton">
+      <property name="text">
+       <string>Beep (OFF)</string>
+      </property>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
