@@ -1,79 +1,147 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>MainWindow</class>
- <widget class="QMainWindow" name="MainWindow">
-  <property name="geometry">
-   <rect>
-    <x>0</x>
-    <y>0</y>
-    <width>400</width>
-    <height>300</height>
-   </rect>
-  </property>
-  <property name="windowTitle">
-   <string>Application A</string>
-  </property>
-  <widget class="QWidget" name="centralwidget">
-   <layout class="QVBoxLayout" name="verticalLayout">
-    <item>
-     <layout class="QHBoxLayout" name="horizontalLayout">
-      <item>
-       <widget class="QLabel" name="label">
-        <property name="text">
-         <string>Period T:</string>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <widget class="QLineEdit" name="periodLineEdit"/>
-      </item>
-      <item>
-       <widget class="QPushButton" name="applyPeriodButton">
-        <property name="text">
-         <string>Применить период Т</string>
-        </property>
-       </widget>
-      </item>
-     </layout>
-    </item>
-    <item>
-     <widget class="QPushButton" name="startBButton">
-      <property name="text">
-       <string>Запуск приложения B</string>
-      </property>
-     </widget>
-    </item>
-    <item>
-     <widget class="QPushButton" name="terminateBButton">
-      <property name="text">
-       <string>Терминация приложения B</string>
-      </property>
-     </widget>
-    </item>
-    <item>
-     <widget class="QPushButton" name="startCButton">
-      <property name="text">
-       <string>Запуск приложения C</string>
-      </property>
-     </widget>
-    </item>
-    <item>
-     <widget class="QPushButton" name="terminateCButton">
-      <property name="text">
-       <string>Терминация приложения C</string>
-      </property>
-     </widget>
-    </item>
-    <item>
-     <widget class="QPushButton" name="beepButton">
-      <property name="text">
-       <string>Beep (OFF)</string>
-      </property>
-     </widget>
-    </item>
-   </layout>
-  </widget>
- </widget>
- <resources/>
- <connections/>
+	<class>MainWindow</class>
+		<widget class="QMainWindow" name="MainWindow">
+			<property name="geometry">
+				<rect>
+					<x>0</x>
+					<y>0</y>
+					<width>275</width>
+					<height>260</height>
+				</rect>
+			</property>
+			<property name="minimumSize">
+				<size>
+					<width>275</width>
+					<height>260</height>
+				</size>
+			</property>
+			<property name="maximumSize">
+				<size>
+					<width>275</width>
+					<height>260</height>
+				</size>
+			</property>
+			<property name="sizePolicy">
+				<sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+					<horstretch>0</horstretch>
+					<verstretch>0</verstretch>
+				</sizepolicy>
+			</property>
+			<property name="windowTitle">
+				<string>Приложение A</string>
+			</property>
+			<widget class="QWidget" name="centralwidget">
+				<layout class="QVBoxLayout" name="verticalLayout">
+					<item>
+						<layout class="QHBoxLayout" name="horizontalLayout">
+						<item>
+							<widget class="QLineEdit" name="periodLineEdit"/>
+						</item>
+						<item>
+							<widget class="QPushButton" name="applyPeriodButton">
+								<property name="text">
+									<string>Применить период Т</string>
+								</property>
+							</widget>
+						</item>
+						</layout>
+					</item>
+					<item>
+						<spacer name="horizontalSpacerPeriod">
+							<property name="orientation">
+								<enum>Qt::Horizontal</enum>
+							</property>
+							<property name="sizeHint" stdset="0">
+								<size>
+									<width>40</width>
+									<height>20</height>
+								</size>
+							</property>
+							<property name="sizeType">
+								<enum>QSizePolicy::Expanding</enum>
+							</property>
+							<property name="expandingDirections">
+								<set>Qt::Horizontal</set>
+							</property>
+						</spacer>
+					</item>
+					<item>
+						<widget class="QPushButton" name="startBButton">
+							<property name="text">
+								<string>Запуск приложения B</string>
+							</property>
+						</widget>
+					</item>
+					<item>
+					<widget class="QPushButton" name="terminateBButton">
+						<property name="text">
+							<string>Терминация приложения B</string>
+						</property>
+					</widget>
+					</item>
+					<item>
+						<spacer name="horizontalSpacerAppB">
+							<property name="orientation">
+								<enum>Qt::Horizontal</enum>
+							</property>
+							<property name="sizeHint" stdset="0">
+								<size>
+									<width>40</width>
+									<height>20</height>
+								</size>
+							</property>
+							<property name="sizeType">
+								<enum>QSizePolicy::Expanding</enum>
+							</property>
+							<property name="expandingDirections">
+								<set>Qt::Horizontal</set>
+							</property>
+						</spacer>
+					</item>
+					<item>
+						<widget class="QPushButton" name="startCButton">
+							<property name="text">
+								<string>Запуск приложения C</string>
+							</property>
+						</widget>
+					</item>
+					<item>
+						<widget class="QPushButton" name="terminateCButton">
+							<property name="text">
+								<string>Терминация приложения C</string>
+							</property>
+						</widget>
+					</item>
+					<item>
+						<spacer name="horizontalSpacerAppC">
+							<property name="orientation">
+								<enum>Qt::Horizontal</enum>
+							</property>
+							<property name="sizeHint" stdset="0">
+								<size>
+									<width>40</width>
+									<height>20</height>
+								</size>
+							</property>
+							<property name="sizeType">
+								<enum>QSizePolicy::Expanding</enum>
+							</property>
+							<property name="expandingDirections">
+								<set>Qt::Horizontal</set>
+							</property>
+						</spacer>
+					</item>
+					<item>
+						<widget class="QPushButton" name="beepButton">
+							<property name="text">
+								<string>Beep</string>
+							</property>
+						</widget>
+					</item>
+				</layout>
+			</widget>
+		</widget>
+	<resources/>
+	<connections/>
 </ui>
