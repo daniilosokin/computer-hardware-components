@@ -3,23 +3,22 @@ project(app_a LANGUAGES CXX)
 
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
-set(CMAKE_AUTOMOC ON)  # Включить автоматическую MOC-генерацию
-set(CMAKE_AUTOUIC ON)  # Включить автоматическую UI-генерацию
-set(CMAKE_AUTORCC ON)  # Включить автоматическую RC-генерацию
+set(CMAKE_AUTOMOC ON)
+set(CMAKE_AUTOUIC ON)
+set(CMAKE_AUTORCC ON)
 
 find_package(Qt6 REQUIRED COMPONENTS Widgets)
 
 set(SOURCES
     main.cpp
     main_window.cpp
-    main_window.hpp  # Добавляем .hpp для MOC
+    main_window.hpp
 )
 
 set(FORMS
     main_window.ui
 )
 
-# Явная генерация UI и MOC
 qt6_wrap_cpp(MOC_FILES ${HEADERS})
 qt6_wrap_ui(UI_FILES ${FORMS})
 
