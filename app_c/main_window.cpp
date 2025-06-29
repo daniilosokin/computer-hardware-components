@@ -1,6 +1,8 @@
 #include "main_window.hpp"
 #include "ui_main_window.h"
+
 #include <windows.h>
+
 #include <QMessageBox>
 
 BeepThread::BeepThread(int period, bool *enabled, QObject *parent)
@@ -12,7 +14,7 @@ void BeepThread::run()
 {
     while (true) {
         if (*enabled) {
-            Beep(1000, 1000); // Beep at 1000Hz for 1s
+            Beep(1000, 1000);
             QThread::sleep(period);
         } else {
             QThread::msleep(100);
@@ -27,7 +29,6 @@ MainWindow::MainWindow(QWidget *parent)
     , beepEnabled(false)
 {
     ui->setupUi(this);
-    setWindowTitle("Application C");
 }
 
 MainWindow::~MainWindow()

@@ -1,5 +1,6 @@
 #include "main_window.hpp"
 #include "ui_main_window.h"
+
 #include <QMessageBox>
 
 MainWindow::MainWindow(QWidget *parent)
@@ -7,7 +8,6 @@ MainWindow::MainWindow(QWidget *parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-    setWindowTitle("Application B");
 }
 
 MainWindow::~MainWindow()
