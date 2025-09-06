@@ -6,6 +6,4 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 find_package(Qt6 REQUIRED COMPONENTS Core Widgets)
 
-add_subdirectory(app-a)
-add_subdirectory(app-b)
-add_subdirectory(app-c)
+add_subdirectory(src)
