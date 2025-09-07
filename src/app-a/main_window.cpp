@@ -41,7 +41,7 @@ void MainWindow::on_applyPeriodButton_clicked()
 void MainWindow::on_startBButton_clicked()
 {
     if (processB->state() == QProcess::NotRunning) {
-        processB->start("app_b.exe");
+        processB->start("app-b.exe");
         terminateRequestedB = false;
     }
 }
@@ -57,7 +57,7 @@ void MainWindow::on_terminateBButton_clicked()
 void MainWindow::on_startCButton_clicked()
 {
     if (processC->state() == QProcess::NotRunning) {
-        processC->start("app_c.exe");
+        processC->start("app-c.exe");
         terminateRequestedC = false;
     }
 }
@@ -84,7 +84,7 @@ void MainWindow::handleProcessBFinished(int exitCode, QProcess::ExitStatus exitS
     
     if (!terminateRequestedB && processB->state() == QProcess::NotRunning) {
         QTimer::singleShot(1000, this, [this]() {
-            processB->start("app_b.exe");
+            processB->start("app-b.exe");
         });
     }
 }
@@ -96,7 +96,7 @@ void MainWindow::handleProcessCFinished(int exitCode, QProcess::ExitStatus exitS
     
     if (!terminateRequestedC && processC->state() == QProcess::NotRunning) {
         QTimer::singleShot(1000, this, [this]() {
-            processC->start("app_c.exe");
+            processC->start("app-c.exe");
         });
     }
 }
