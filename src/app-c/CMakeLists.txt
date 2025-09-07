@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.30)
+﻿cmake_minimum_required(VERSION 3.30)
 project(app-c LANGUAGES CXX)
 
 set(CMAKE_CXX_STANDARD 20)
@@ -10,23 +10,14 @@ set(CMAKE_AUTORCC ON)
 find_package(Qt6 REQUIRED COMPONENTS Widgets)
 
 set(SOURCES
-    main.cpp
-    main_window.cpp
-    main_window.hpp
+    app_c.cpp
+    app_c_window.cpp
+    app_c_window.hpp
+    app_c_window_ui.h
 )
-
-set(FORMS
-    main_window.ui
-)
-
-qt6_wrap_cpp(MOC_FILES ${HEADERS})
-qt6_wrap_ui(UI_FILES ${FORMS})
 
 add_executable(${PROJECT_NAME}
     ${SOURCES}
-    ${FORMS}
-    ${MOC_FILES}
-    ${UI_FILES}
 )
 
 target_include_directories(${PROJECT_NAME} PRIVATE
