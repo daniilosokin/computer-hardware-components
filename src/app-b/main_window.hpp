@@ -1,4 +1,4 @@
-#ifndef MAIN_WINDOW_HPP
+﻿#ifndef MAIN_WINDOW_HPP
 #define MAIN_WINDOW_HPP
 
 #include <QMainWindow>
@@ -19,7 +19,7 @@ public:
     ~MainWindow();
 
 private slots:
-    void on_applyPeriodButton_clicked();
+    void on_apply_period_button_clicked();
 
 private:
     Ui::MainWindow *ui;

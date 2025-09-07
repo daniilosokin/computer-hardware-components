@@ -1,4 +1,4 @@
-#ifndef MAIN_WINDOW_HPP
+﻿#ifndef MAIN_WINDOW_HPP
 #define MAIN_WINDOW_HPP
 
 #include <QMainWindow>
@@ -18,22 +18,22 @@ public:
     ~MainWindow();
 
 private slots:
-    void on_applyPeriodButton_clicked();
-    void on_startBButton_clicked();
-    void on_terminateBButton_clicked();
-    void on_startCButton_clicked();
-    void on_terminateCButton_clicked();
-    void on_beepButton_clicked();
-    void handleProcessBFinished(int exitCode, QProcess::ExitStatus exitStatus);
-    void handleProcessCFinished(int exitCode, QProcess::ExitStatus exitStatus);
+    void on_apply_period_button_clicked();
+    void on_start_app_b_button_clicked();
+    void on_terminate_app_b_button_clicked();
+    void on_start_app_c_button_clicked();
+    void on_terminate_app_c_button_clicked();
+    void on_beep_button_clicked();
+    void handle_process_app_b_finished(int exit_code, QProcess::ExitStatus exit_status);
+    void handle_process_app_c_finished(int exit_code, QProcess::ExitStatus exit_status);
 
 private:
     Ui::MainWindow *ui;
-    QProcess *processB;
-    QProcess *processC;
-    bool beepEnabled;
-    bool terminateRequestedB;
-    bool terminateRequestedC;
+    QProcess *process_app_b;
+    QProcess *process_app_c;
+    bool beep_enabled;
+    bool terminate_requested_app_b;
+    bool terminate_requested_app_c;
 };
 
 #endif // MAIN_WINDOW_HPP

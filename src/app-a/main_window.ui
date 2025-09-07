@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
 	<class>MainWindow</class>
 		<widget class="QMainWindow" name="MainWindow">
@@ -29,26 +29,26 @@
 				</sizepolicy>
 			</property>
 			<property name="windowTitle">
-				<string>Приложение A</string>
+				<string>A</string>
 			</property>
-			<widget class="QWidget" name="centralwidget">
-				<layout class="QVBoxLayout" name="verticalLayout">
+			<widget class="QWidget" name="central_widget">
+				<layout class="QVBoxLayout" name="vertical_layout">
 					<item>
-						<layout class="QHBoxLayout" name="horizontalLayout">
+						<layout class="QHBoxLayout" name="horizontal_layout">
 						<item>
-							<widget class="QLineEdit" name="periodLineEdit"/>
+							<widget class="QLineEdit" name="period_line_edit"/>
 						</item>
 						<item>
-							<widget class="QPushButton" name="applyPeriodButton">
+							<widget class="QPushButton" name="apply_period_button">
 								<property name="text">
-									<string>Применить период Т</string>
+									<string>Apply period Т</string>
 								</property>
 							</widget>
 						</item>
 						</layout>
 					</item>
 					<item>
-						<spacer name="horizontalSpacerPeriod">
+						<spacer name="horizontal_spacer_period">
 							<property name="orientation">
 								<enum>Qt::Horizontal</enum>
 							</property>
@@ -67,21 +67,21 @@
 						</spacer>
 					</item>
 					<item>
-						<widget class="QPushButton" name="startBButton">
+						<widget class="QPushButton" name="start_app_b_button">
 							<property name="text">
-								<string>Запуск приложения B</string>
+								<string>Start app B</string>
 							</property>
 						</widget>
 					</item>
 					<item>
-					<widget class="QPushButton" name="terminateBButton">
+					<widget class="QPushButton" name="terminate_app_b_button">
 						<property name="text">
-							<string>Терминация приложения B</string>
+							<string>Terminate app B</string>
 						</property>
 					</widget>
 					</item>
 					<item>
-						<spacer name="horizontalSpacerAppB">
+						<spacer name="horizontal_spacer_app_b">
 							<property name="orientation">
 								<enum>Qt::Horizontal</enum>
 							</property>
@@ -100,21 +100,21 @@
 						</spacer>
 					</item>
 					<item>
-						<widget class="QPushButton" name="startCButton">
+						<widget class="QPushButton" name="start_app_c_button">
 							<property name="text">
-								<string>Запуск приложения C</string>
+								<string>Start app C</string>
 							</property>
 						</widget>
 					</item>
 					<item>
-						<widget class="QPushButton" name="terminateCButton">
+						<widget class="QPushButton" name="terminate_app_c_button">
 							<property name="text">
-								<string>Терминация приложения C</string>
+								<string>Terminate app C</string>
 							</property>
 						</widget>
 					</item>
 					<item>
-						<spacer name="horizontalSpacerAppC">
+						<spacer name="horizontal_spacer_app_c">
 							<property name="orientation">
 								<enum>Qt::Horizontal</enum>
 							</property>
@@ -133,9 +133,9 @@
 						</spacer>
 					</item>
 					<item>
-						<widget class="QPushButton" name="beepButton">
+						<widget class="QPushButton" name="beep_button">
 							<property name="text">
-								<string>Beep</string>
+								<string>Beep (OFF)</string>
 							</property>
 						</widget>
 					</item>

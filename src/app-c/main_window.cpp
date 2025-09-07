@@ -1,4 +1,4 @@
-#include "main_window.hpp"
+﻿#include "main_window.hpp"
 #include "ui_main_window.h"
 
 #include <windows.h>
@@ -25,26 +25,26 @@ void BeepThread::run()
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
-    , beepThread(nullptr)
-    , beepEnabled(false)
+    , beep_thread(nullptr)
+    , beep_enabled(false)
 {
     ui->setupUi(this);
 }
 
 MainWindow::~MainWindow()
 {
-    if (beepThread) {
-        beepThread->terminate();
-        beepThread->wait();
-        delete beepThread;
+    if (beep_thread) {
+        beep_thread->terminate();
+        beep_thread->wait();
+        delete beep_thread;
     }
     delete ui;
 }
 
-void MainWindow::on_applyPeriodButton_clicked()
+void MainWindow::on_apply_period_button_clicked()
 {
     bool ok;
-    int period = ui->periodLineEdit->text().toInt(&ok);
+    int period = ui->period_line_edit->text().toInt(&ok);
     if (ok && period > 0) {
         // Здесь должна быть логика обновления периода в других приложениях
         // и обновление периода в beepThread, если он существует

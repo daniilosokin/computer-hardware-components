@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
  <class>MainWindow</class>
  <widget class="QMainWindow" name="MainWindow">
@@ -29,17 +29,17 @@
    </sizepolicy>
   </property>
   <property name="windowTitle">
-   <string>Приложение B</string>
+   <string>B</string>
   </property>
-  <widget class="QWidget" name="centralwidget">
-   <layout class="QHBoxLayout" name="horizontalLayout">
+  <widget class="QWidget" name="central_widget">
+   <layout class="QHBoxLayout" name="horizontal_layout">
       <item>
-       <widget class="QLineEdit" name="periodLineEdit"/>
+       <widget class="QLineEdit" name="period_line_edit"/>
       </item>
       <item>
-       <widget class="QPushButton" name="applyPeriodButton">
+       <widget class="QPushButton" name="apply_period_button">
         <property name="text">
-         <string>Применить период Т</string>
+         <string>Apply period Т</string>
         </property>
        </widget>
       </item>
