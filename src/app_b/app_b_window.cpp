@@ -10,7 +10,8 @@
 #include <QTimer>
 
 AppBWindow::AppBWindow(QWidget* parent)
-	: QMainWindow(parent) 
+	: QMainWindow(parent)
+	, period_t_(0) 
 {
 	if (!shared_mem_.Initialize()) 
 	{
@@ -74,8 +75,11 @@ void AppBWindow::CheckTermination()
 	int current_t = data ? data->period_t : 1000;
 	shared_mem_.Unlock();
 
-	if (t_edit_->text().toInt() != current_t) 
+	if (period_t_ != current_t)
+	{
+		period_t_ = current_t;
 		t_edit_->setText(QString::number(current_t));
+	}
 }
 
 void AppBWindow::SetupUi() 

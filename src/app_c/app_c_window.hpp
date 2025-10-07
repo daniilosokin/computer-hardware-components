@@ -48,6 +48,8 @@ private:
 	QPushButton* apply_button_;
 	SharedMemoryManager shared_mem_;
 	BeepThread* beep_thread_;
+
+	int period_t_;
 };
 
 #endif  // APP_C_WINDOW_H_

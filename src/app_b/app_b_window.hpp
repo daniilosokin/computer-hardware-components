@@ -30,6 +30,8 @@ private:
 	QLineEdit* t_edit_;
 	QPushButton* apply_button_;
 	SharedMemoryManager shared_mem_;
+
+	int period_t_;
 };
 
 #endif  // APP_B_WINDOW_H_

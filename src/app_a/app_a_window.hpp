@@ -49,6 +49,7 @@ private:
 
 	bool manual_termination_b_;
 	bool beep_enabled_;
+	int period_t_;
 };
 
 #endif  // APP_A_WINDOW_H_

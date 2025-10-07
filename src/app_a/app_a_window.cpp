@@ -9,11 +9,12 @@
 #include <QMessageBox>
 
 AppAWindow::AppAWindow(QWidget* parent)
-	: 	QMainWindow(parent),
-		process_b_(nullptr),
-		process_c_(nullptr),
-		manual_termination_b_(false),
-		beep_enabled_(false) 
+	: QMainWindow(parent)
+	, process_b_(nullptr)
+	, process_c_(nullptr)
+	, manual_termination_b_(false)
+	, beep_enabled_(false)
+	, period_t_(0) 
 {
 	if (!shared_mem_.Initialize()) 
 	{
@@ -190,8 +191,11 @@ void AppAWindow::UpdateUiFromSharedData()
 	bool current_beep = data->beep_enabled;
 	shared_mem_.Unlock();
 
-	if (t_edit_->text().toInt() != current_t)
+	if (period_t_ != current_t)
+	{
+		period_t_ = current_t;
 		t_edit_->setText(QString::number(current_t));
+	}
 
 	if (beep_enabled_ != current_beep) 
 	{

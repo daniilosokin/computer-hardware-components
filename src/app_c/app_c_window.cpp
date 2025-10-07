@@ -11,9 +11,9 @@
 #include <Windows.h>
 
 BeepThread::BeepThread(SharedMemoryManager* shared_mem, QObject* parent)
-	: QThread(parent),
-	shared_mem_(shared_mem),
-	should_stop_(false)
+	: QThread(parent)
+	, shared_mem_(shared_mem)
+	, should_stop_(false)
 {}
 
 void BeepThread::Stop() 
@@ -54,8 +54,9 @@ void BeepThread::run()
 }
 
 AppCWindow::AppCWindow(QWidget* parent)
-	: QMainWindow(parent),
-	beep_thread_(nullptr) 
+	: QMainWindow(parent)
+	, beep_thread_(nullptr)
+	, period_t_(0)
 {
 	if (!shared_mem_.Initialize()) 
 	{
@@ -124,8 +125,11 @@ void AppCWindow::CheckTermination()
 	int current_t = data ? data->period_t : 1000;
 	shared_mem_.Unlock();
 
-	if (t_edit_->text().toInt() != current_t)
+	if (period_t_ != current_t)
+	{
+		period_t_ = current_t;
 		t_edit_->setText(QString::number(current_t));
+	}
 }
 
 void AppCWindow::SetupUi() 
