@@ -36,6 +36,7 @@ public:
 private slots:
 	void ApplyPeriodT();
 	void CheckTermination();
+	void UpdateUiFromSharedData();
 
 private:
 	void SetupUi();

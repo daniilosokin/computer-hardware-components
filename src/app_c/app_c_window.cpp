@@ -127,6 +127,19 @@ void AppCWindow::CheckTermination()
 		close();
 		return;
 	}
+	shared_mem_.Unlock();
+}
+
+void AppCWindow::UpdateUiFromSharedData()
+{
+	shared_mem_.Lock();
+	SharedData* data = shared_mem_.GetData();
+
+	if (!data)
+	{
+		shared_mem_.Unlock();
+		return;
+	}
 
 	int current_t = data->period_t;
 	shared_mem_.Unlock();
@@ -168,6 +181,10 @@ void AppCWindow::SetupTimers()
 	QTimer* check_timer = new QTimer(this);
 	connect(check_timer, &QTimer::timeout, this, &AppCWindow::CheckTermination);
 	check_timer->start(100);
+
+	QTimer* update_timer = new QTimer(this);
+	connect(update_timer, &QTimer::timeout, this, &AppCWindow::UpdateUiFromSharedData);
+	update_timer->start(100);
 }
 
 void AppCWindow::closeEvent(QCloseEvent* event)
