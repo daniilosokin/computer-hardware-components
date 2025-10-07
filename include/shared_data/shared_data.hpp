@@ -11,6 +11,7 @@ struct SharedData
 	bool app_b_running;
 	bool app_c_running;
 	bool terminate_all;
+	bool period_t_was_updated;
 };
 
 constexpr char kSharedMemName[] = "MultiAppSharedMemory";
