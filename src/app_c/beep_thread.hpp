@@ -3,7 +3,7 @@
 
 #include <QThread>
 
-#include "shared_data/shared_data.hpp"
+#include "shared_memory/shared_memory.hpp"
 
 class BeepThread : public QThread 
 {
