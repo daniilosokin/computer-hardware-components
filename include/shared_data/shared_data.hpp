@@ -1,5 +1,5 @@
-#ifndef LIB_SHARED_MEMORY_MANAGER_HPP_
-#define LIB_SHARED_MEMORY_MANAGER_HPP_
+#ifndef LIB_SHARED_MEMORY_HPP_
+#define LIB_SHARED_MEMORY_HPP_
 
 #include <QSharedMemory>
 #include <QSystemSemaphore>
@@ -13,14 +13,14 @@ struct SharedData
 	bool terminate_all;
 };
 
-constexpr char kSharedMemName[] = "MultiAppSharedMemory";
-constexpr char kSemaphoreName[] = "MultiAppSemaphore";
+constexpr char kSharedMemoryName[] = "kSharedMemoryName";
+constexpr char    kSemaphoreName[] = "MultiAppSemaphore";
 
-class SharedMemoryManager 
+class SharedMemory 
 {
 public:
-	SharedMemoryManager();
-	~SharedMemoryManager();
+	SharedMemory();
+	~SharedMemory();
 
 	bool Initialize();
 	void Lock();
@@ -33,4 +33,4 @@ private:
 	bool is_attached_;
 };
 
-#endif  // LIB_SHARED_MEMORY_MANAGER_HPP_
+#endif  // LIB_SHARED_MEMORY_HPP_

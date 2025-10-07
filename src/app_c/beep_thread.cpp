@@ -6,7 +6,7 @@
 	#include <stdio.h>
 #endif
 
-BeepThread::BeepThread(SharedMemoryManager* shared_mem, QObject* parent)
+BeepThread::BeepThread(SharedMemory* shared_mem, QObject* parent)
 	: QThread(parent)
 	, shared_mem_(shared_mem)
 	, should_stop_(false)

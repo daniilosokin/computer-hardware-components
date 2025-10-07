@@ -29,7 +29,7 @@ private:
 
 	QLineEdit* t_edit_;
 	QPushButton* apply_button_;
-	SharedMemoryManager shared_mem_;
+	SharedMemory shared_mem_;
 
 	int period_t_;
 };

@@ -2,19 +2,19 @@
 
 #include <QMessageBox>
 
-SharedMemoryManager::SharedMemoryManager()
+SharedMemory::SharedMemory()
 	: shared_mem_(kSharedMemName)
 	, semaphore_(kSemaphoreName, 1)
 	, is_attached_(false)
 {}
 
-SharedMemoryManager::~SharedMemoryManager() 
+SharedMemory::~SharedMemory() 
 {
 	if (is_attached_) 
 		shared_mem_.detach();
 }
 
-bool SharedMemoryManager::Initialize() 
+bool SharedMemory::Initialize() 
 {
 	Lock();
 
@@ -49,17 +49,17 @@ bool SharedMemoryManager::Initialize()
 	return true;
 }
 
-void SharedMemoryManager::Lock() 
+void SharedMemory::Lock() 
 {
 	semaphore_.acquire();
 }
 
-void SharedMemoryManager::Unlock() 
+void SharedMemory::Unlock() 
 {
 	semaphore_.release();
 }
 
-SharedData* SharedMemoryManager::GetData()
+SharedData* SharedMemory::GetData()
 {
 	if (!is_attached_ || !shared_mem_.data()) 
 		return nullptr;

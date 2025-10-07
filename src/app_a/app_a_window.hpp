@@ -45,7 +45,7 @@ private:
 	QProcess* process_b_;
 	QProcess* process_c_;
 
-	SharedMemoryManager shared_mem_;
+	SharedMemory shared_mem_;
 
 	int  period_t_;
 	bool manual_termination_b_;
