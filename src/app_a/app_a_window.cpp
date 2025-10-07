@@ -140,6 +140,7 @@ void AppAWindow::ToggleBeep()
 	SharedData* data = shared_mem_.GetData();
 	if (data) 
 		data->beep_enabled = !(data->beep_enabled);
+		beep_button_->setChecked(data->beep_enabled);
 	shared_mem_.Unlock();
 }
 
@@ -196,8 +197,6 @@ void AppAWindow::UpdateUiFromSharedData()
 		period_t_ = current_t;
 		t_edit_->setText(QString::number(current_t));
 	}
-
-	beep_button_->setText(current_beep ? "Beep (ON)" : "Beep (OFF)");
 }
 
 void AppAWindow::SetupUi() 
@@ -207,13 +206,16 @@ void AppAWindow::SetupUi()
 	QHBoxLayout*       t_layout = new QHBoxLayout();
 
 	             t_edit_ = new QLineEdit();
-	        beep_button_ = new QPushButton("Beep (OFF)");
+	        beep_button_ = new QPushButton("Beep");
 	       apply_button_ = new QPushButton("Применить период Т");
 	     start_b_button_ = new QPushButton("Запуск приложения B");
 	     start_c_button_ = new QPushButton("Запуск приложения C");
 	 terminate_b_button_ = new QPushButton("Терминация приложения B");
 	 terminate_c_button_ = new QPushButton("Терминация приложения C");
-
+	
+	beep_button_->setCheckable(true);
+	beep_button_->setChecked(false);
+	
 	t_layout->addWidget(new QLabel("Период T:"));
 	t_layout->addWidget(t_edit_);
 
