@@ -8,7 +8,12 @@
 #include <QLabel>
 #include <QMessageBox>
 #include <QTimer>
-#include <Windows.h>
+
+#ifdef _WIN32
+	#include <Windows.h>
+#elif
+	#include <stdio.h>
+#endif
 
 BeepThread::BeepThread(SharedMemoryManager* shared_mem, QObject* parent)
 	: QThread(parent)
@@ -42,8 +47,13 @@ void BeepThread::run()
 			break;
 
 		if (beep_enabled)
-		{
-			Beep(1000, 1000);
+		{	
+			#ifdef _WIN32
+				Beep(440, 1000);
+			#else
+				system("echo -e "\007" >/dev/tty10");
+			#endif
+			
 			msleep(period_t);
 		} 
 		else 
