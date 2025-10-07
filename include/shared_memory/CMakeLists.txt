@@ -1,10 +1,10 @@
 set(LIBRARY_NAME
-    shared_data
+    shared_memory
 )
 
 add_library(${LIBRARY_NAME}
     STATIC 
-        shared_data.cpp
+        shared_memory.cpp
 )
 
 target_include_directories(${LIBRARY_NAME}
