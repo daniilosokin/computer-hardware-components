@@ -159,6 +159,12 @@ void AppAWindow::MonitorProcesses()
 		shared_mem_.Unlock();
 	}
 
+	if (process_c_ 
+		&& process_c_->state() != QProcess::Running) 
+	{
+		process_c_ = nullptr;
+	}
+
 	shared_mem_.Lock();
 	SharedData* data = shared_mem_.GetData();
 	if (data && data->terminate_all)
