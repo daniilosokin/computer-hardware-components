@@ -208,28 +208,31 @@ void AppAWindow::SetupUi()
 	QVBoxLayout*    main_layout = new QVBoxLayout(central_widget);
 	QHBoxLayout*       t_layout = new QHBoxLayout();
 
-	            t_edit_ = new QLineEdit();
-	       beep_button_ = new QPushButton("Beep (OFF)");
-	      apply_button_ = new QPushButton("Применить период Т");
-	    start_b_button_ = new QPushButton("Запуск приложения B");
-	    start_c_button_ = new QPushButton("Запуск приложения C");
-	terminate_b_button_ = new QPushButton("Терминация приложения B");
-	terminate_c_button_ = new QPushButton("Терминация приложения C");
+	             t_edit_ = new QLineEdit();
+	        beep_button_ = new QPushButton("Beep (OFF)");
+	       apply_button_ = new QPushButton("Применить период Т");
+	     start_b_button_ = new QPushButton("Запуск приложения B");
+	     start_c_button_ = new QPushButton("Запуск приложения C");
+	 terminate_b_button_ = new QPushButton("Терминация приложения B");
+	 terminate_c_button_ = new QPushButton("Терминация приложения C");
 
 	t_layout->addWidget(new QLabel("Период T:"));
 	t_layout->addWidget(t_edit_);
 
 	main_layout->addLayout(t_layout);
 	main_layout->addWidget(apply_button_);
+	main_layout->addSpacing(20);
 	main_layout->addWidget(start_b_button_);
 	main_layout->addWidget(terminate_b_button_);
+	main_layout->addSpacing(20);
 	main_layout->addWidget(start_c_button_);
 	main_layout->addWidget(terminate_c_button_);
+	main_layout->addSpacing(20);
 	main_layout->addWidget(beep_button_);
 
 	setCentralWidget(central_widget);
 	setWindowTitle("Приложение A");
-	resize(400, 300);
+	setFixedSize(260, 280);
 }
 
 void AppAWindow::SetupConnections() 
