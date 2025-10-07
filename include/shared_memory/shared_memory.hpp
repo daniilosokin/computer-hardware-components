@@ -6,7 +6,7 @@
 
 struct SharedData 
 {
-	int period_t;
+	int  period_t;
 	bool beep_enabled;
 	bool app_b_running;
 	bool app_c_running;
@@ -22,15 +22,15 @@ public:
 	SharedMemory();
 	~SharedMemory();
 
-	bool Initialize();
-	void Lock();
-	void Unlock();
+	bool        Initialize();
+	void        Lock();
+	void        Unlock();
 	SharedData* GetData();
 
 private:
-	QSharedMemory shared_mem_;
+	bool             is_attached_;
+	QSharedMemory    shared_mem_;
 	QSystemSemaphore semaphore_;
-	bool is_attached_;
 };
 
 #endif  // LIB_SHARED_MEMORY_HPP_
