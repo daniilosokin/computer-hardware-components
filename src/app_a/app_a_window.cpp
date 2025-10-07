@@ -51,10 +51,6 @@ void AppAWindow::ApplyPeriodT()
 		if (data) 
 			data->period_t = new_t;
 		shared_mem_.Unlock();
-
-		QMessageBox::information(this, 
-								"Успех", 
-								"Период T применен: " + QString::number(new_t));
 	} 
 	else 
 	{
@@ -77,10 +73,6 @@ void AppAWindow::StartAppB()
 		if (data) 
 			data->app_b_running = true;
 		shared_mem_.Unlock();
-
-		QMessageBox::information(this, 
-								"Запуск", 
-								"Приложение B запущено");
 	}
 }
 
@@ -101,9 +93,6 @@ void AppAWindow::TerminateAppB()
 
 		process_b_->deleteLater();
 		process_b_ = nullptr;
-		QMessageBox::information(this, 
-								"Терминация", 
-								"Приложение B завершено");
 	}
 }
 
@@ -119,10 +108,6 @@ void AppAWindow::StartAppC()
 		if (data) 
 			data->app_c_running = true;
 		shared_mem_.Unlock();
-
-		QMessageBox::information(this, 
-								"Запуск",
-								"Приложение C запущено");
 	}
 }
 
@@ -142,16 +127,13 @@ void AppAWindow::TerminateAppC()
 
 		process_c_->deleteLater();
 		process_c_ = nullptr;
-		QMessageBox::information(this, 
-								"Терминация", 
-								"Приложение C завершено");
 	}
 }
 
 void AppAWindow::ToggleBeep() 
 {
 	beep_enabled_ = !beep_enabled_;
-	beep_button_->setText(beep_enabled_ ? "Beep (активен)" : "Beep (с фиксацией)");
+	beep_button_->setText(beep_enabled_ ? "Beep (On)" : "Beep (off)");
 
 	shared_mem_.Lock();
 	SharedData* data = shared_mem_.GetData();
@@ -166,9 +148,6 @@ void AppAWindow::MonitorProcesses()
 		&& process_b_->state() != QProcess::Running 
 		&& !manual_termination_b_) 
 	{
-		QMessageBox::information(this, 
-								"Перезапуск", 
-								"Приложение B перезапускается");
 		process_b_->deleteLater();
 		process_b_ = new QProcess(this);
 		process_b_->start("app_b");
@@ -211,7 +190,7 @@ void AppAWindow::UpdateUiFromSharedData()
 	if (beep_enabled_ != current_beep) 
 	{
 		beep_enabled_ = current_beep;
-		beep_button_->setText(beep_enabled_ ? "Beep (активен)" : "Beep (с фиксацией)");
+		beep_button_->setText(beep_enabled_ ? "Beep (ON)" : "Beep (OFF)");
 	}
 }
 
@@ -233,7 +212,7 @@ void AppAWindow::SetupUi()
 	terminate_b_button_ = new QPushButton("Терминация приложения B");
 	start_c_button_ = new QPushButton("Запуск приложения C");
 	terminate_c_button_ = new QPushButton("Терминация приложения C");
-	beep_button_ = new QPushButton("Beep (с фиксацией)");
+	beep_button_ = new QPushButton("Beep (OFF)");
 
 	main_layout->addWidget(apply_button_);
 	main_layout->addWidget(start_b_button_);

@@ -51,10 +51,6 @@ void AppBWindow::ApplyPeriodT()
 		if (data) 
 			data->period_t = new_t;
 		shared_mem_.Unlock();
-
-		QMessageBox::information(this, 
-								"Успех", 
-								"Период T применен: " + QString::number(new_t));
 	} 
 	else 
 	{
