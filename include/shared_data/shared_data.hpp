@@ -1,5 +1,5 @@
-#ifndef LIB_SHARED_DATA_HPP_
-#define LIB_SHARED_DATA_HPP_
+#ifndef LIB_SHARED_MEMORY_MANAGER_HPP_
+#define LIB_SHARED_MEMORY_MANAGER_HPP_
 
 #include <QSharedMemory>
 #include <QSystemSemaphore>
@@ -33,4 +33,4 @@ private:
 	bool is_attached_;
 };
 
-#endif  // LIB_SHARED_DATA_HPP_
+#endif  // LIB_SHARED_MEMORY_MANAGER_HPP_
