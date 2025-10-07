@@ -2,11 +2,10 @@
 #define APP_B_WINDOW_H_
 
 #include <QMainWindow>
+#include <QLineEdit>
+#include <QPushButton>
 
 #include "shared_data/shared_data.hpp"
-
-class QLineEdit;
-class QPushButton;
 
 class AppBWindow : public QMainWindow
 {

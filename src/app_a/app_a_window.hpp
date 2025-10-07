@@ -4,11 +4,10 @@
 #include <QMainWindow>
 #include <QProcess>
 #include <QTimer>
+#include <QLineEdit>
+#include <QPushButton>
 
 #include "shared_data/shared_data.hpp"
-
-class QLineEdit;
-class QPushButton;
 
 class AppAWindow : public QMainWindow 
 {

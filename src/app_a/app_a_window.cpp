@@ -3,8 +3,6 @@
 #include <QApplication>
 #include <QVBoxLayout>
 #include <QHBoxLayout>
-#include <QLineEdit>
-#include <QPushButton>
 #include <QLabel>
 #include <QMessageBox>
 
