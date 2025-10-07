@@ -11,7 +11,7 @@
 
 AppBWindow::AppBWindow(QWidget* parent)
 	: QMainWindow(parent)
-	, period_t_(0) 
+	, period_t_(1000) 
 {
 	if (!shared_mem_.Initialize()) 
 	{
@@ -65,14 +65,21 @@ void AppBWindow::CheckTermination()
 {
 	shared_mem_.Lock();
 	SharedData* data = shared_mem_.GetData();
-	if (data && data->terminate_all)
+
+	if (!data)
+	{
+		shared_mem_.Unlock();
+		return;
+	}
+
+	if (data->terminate_all)
 	{
 		shared_mem_.Unlock();
 		close();
 		return;
 	}
 
-	int current_t = data ? data->period_t : 1000;
+	int current_t = data->period_t;
 	shared_mem_.Unlock();
 
 	if (period_t_ != current_t)
@@ -84,26 +91,17 @@ void AppBWindow::CheckTermination()
 
 void AppBWindow::SetupUi() 
 {
-	QWidget* central_widget = new QWidget(this);
-	QVBoxLayout* main_layout = new QVBoxLayout(central_widget);
+	QWidget*     central_widget = new QWidget(this);
+	QVBoxLayout*    main_layout = new QVBoxLayout(central_widget);
+	QHBoxLayout*       t_layout = new QHBoxLayout();
 
-	QHBoxLayout* t_layout = new QHBoxLayout();
-	t_layout->addWidget(new QLabel("Период T:"));
-	t_edit_ = new QLineEdit();
-	t_edit_->setPlaceholderText("Введите период T (мс)");
-
-	shared_mem_.Lock();
-	SharedData* data = shared_mem_.GetData();
-	if (data) 
-		t_edit_->setText(QString::number(data->period_t));
-	else 
-		t_edit_->setText("1000");
-	shared_mem_.Unlock();
-
-	t_layout->addWidget(t_edit_);
-	main_layout->addLayout(t_layout);
-
+	      t_edit_ = new QLineEdit();
 	apply_button_ = new QPushButton("Применить период Т");
+
+	t_layout->addWidget(new QLabel("Период T:"));
+	t_layout->addWidget(t_edit_);
+
+	main_layout->addLayout(t_layout);
 	main_layout->addWidget(apply_button_);
 
 	setCentralWidget(central_widget);
@@ -120,7 +118,7 @@ void AppBWindow::SetupTimers()
 {
 	QTimer* check_timer = new QTimer(this);
 	connect(check_timer, &QTimer::timeout, this, &AppBWindow::CheckTermination);
-	check_timer->start(500);
+	check_timer->start(100);
 }
 
 void AppBWindow::closeEvent(QCloseEvent* event) 
