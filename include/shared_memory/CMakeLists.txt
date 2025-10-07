@@ -4,7 +4,7 @@ set(LIBRARY_NAME
 
 add_library(${LIBRARY_NAME}
     STATIC 
-        shared_memory.cpp
+        ${LIBRARY_NAME}.cpp
 )
 
 target_include_directories(${LIBRARY_NAME}
