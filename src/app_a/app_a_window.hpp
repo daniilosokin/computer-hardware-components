@@ -48,7 +48,6 @@ private:
 	SharedMemoryManager shared_mem_;
 
 	bool manual_termination_b_;
-	bool beep_enabled_;
 	int period_t_;
 };
 
