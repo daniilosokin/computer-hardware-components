@@ -134,12 +134,13 @@ void AppCWindow::SetupConnections()
 
 void AppCWindow::SetupTimers() 
 {
-	QTimer* check_timer = new QTimer(this);
-	connect(check_timer, &QTimer::timeout, this, &AppCWindow::CheckTermination);
-	check_timer->start(100);
-
+	QTimer*  check_timer = new QTimer(this);
 	QTimer* update_timer = new QTimer(this);
+	
+	connect(check_timer,  &QTimer::timeout, this, &AppCWindow::CheckTermination);
 	connect(update_timer, &QTimer::timeout, this, &AppCWindow::UpdateUiFromSharedData);
+	
+	check_timer->start(100);
 	update_timer->start(100);
 }
 

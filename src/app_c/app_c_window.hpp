@@ -27,10 +27,10 @@ private:
 
 	void closeEvent(QCloseEvent* event) override;
 
-	QLineEdit* t_edit_;
+	QLineEdit*   t_edit_;
 	QPushButton* apply_button_;
 	SharedMemory shared_mem_;
-	BeepThread* beep_thread_;
+	BeepThread*  beep_thread_;
 
 	int period_t_;
 };

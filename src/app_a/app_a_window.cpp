@@ -235,22 +235,23 @@ void AppAWindow::SetupUi()
 
 void AppAWindow::SetupConnections() 
 {
-	connect(apply_button_, &QPushButton::clicked, this, &AppAWindow::ApplyPeriodT);
-	connect(start_b_button_, &QPushButton::clicked, this, &AppAWindow::StartAppB);
+	connect(apply_button_,       &QPushButton::clicked, this, &AppAWindow::ApplyPeriodT);
+	connect(start_b_button_,     &QPushButton::clicked, this, &AppAWindow::StartAppB);
 	connect(terminate_b_button_, &QPushButton::clicked, this, &AppAWindow::TerminateAppB);
-	connect(start_c_button_, &QPushButton::clicked, this, &AppAWindow::StartAppC);
+	connect(start_c_button_,     &QPushButton::clicked, this, &AppAWindow::StartAppC);
 	connect(terminate_c_button_, &QPushButton::clicked, this, &AppAWindow::TerminateAppC);
-	connect(beep_button_, &QPushButton::clicked, this, &AppAWindow::ToggleBeep);
+	connect(beep_button_,        &QPushButton::clicked, this, &AppAWindow::ToggleBeep);
 }
 
 void AppAWindow::SetupTimers() 
 {
 	QTimer* monitor_timer = new QTimer(this);
-	connect(monitor_timer, &QTimer::timeout, this, &AppAWindow::MonitorProcesses);
-	monitor_timer->start(100);
+	QTimer*  update_timer = new QTimer(this);
 
-	QTimer* update_timer = new QTimer(this);
-	connect(update_timer, &QTimer::timeout, this, &AppAWindow::UpdateUiFromSharedData);
+	connect(monitor_timer, &QTimer::timeout, this, &AppAWindow::MonitorProcesses);
+	connect(update_timer,  &QTimer::timeout, this, &AppAWindow::UpdateUiFromSharedData);
+	
+	monitor_timer->start(100);
 	update_timer->start(100);
 }
 

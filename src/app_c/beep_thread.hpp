@@ -18,6 +18,6 @@ protected:
 
 private:
 	SharedMemory* shared_mem_;
-	bool should_stop_;
+	bool          should_stop_;
 };
 #endif // APP_C_BEEPTHREAD_H_
