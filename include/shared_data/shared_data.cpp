@@ -43,7 +43,6 @@ bool SharedMemoryManager::Initialize()
 		data->app_b_running = false;
 		data->app_c_running = false;
 		data->terminate_all = false;
-		data->period_t_was_updated = false;
 	}
 
 	Unlock();
