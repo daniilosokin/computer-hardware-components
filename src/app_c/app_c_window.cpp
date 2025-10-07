@@ -157,7 +157,7 @@ void AppCWindow::SetupUi()
 
 	setCentralWidget(central_widget);
 	setWindowTitle("Приложение C");
-	resize(300, 150);
+	setFixedSize(260, 75);
 }
 
 void AppCWindow::SetupConnections() 

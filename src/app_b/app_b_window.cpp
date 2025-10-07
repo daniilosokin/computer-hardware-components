@@ -106,7 +106,7 @@ void AppBWindow::SetupUi()
 
 	setCentralWidget(central_widget);
 	setWindowTitle("Приложение B");
-	resize(300, 150);
+	setFixedSize(260, 75);
 }
 
 void AppBWindow::SetupConnections() 
