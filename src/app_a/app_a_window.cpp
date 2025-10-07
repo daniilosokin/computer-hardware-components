@@ -133,7 +133,7 @@ void AppAWindow::TerminateAppC()
 void AppAWindow::ToggleBeep() 
 {
 	beep_enabled_ = !beep_enabled_;
-	beep_button_->setText(beep_enabled_ ? "Beep (On)" : "Beep (off)");
+	beep_button_->setText(beep_enabled_ ? "Beep (ON)" : "Beep (OFF)");
 
 	shared_mem_.Lock();
 	SharedData* data = shared_mem_.GetData();
