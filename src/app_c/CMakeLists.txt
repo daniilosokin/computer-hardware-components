@@ -5,6 +5,7 @@
 add_executable(${SUBPROJECT_NAME}
     ${SUBPROJECT_NAME}.cpp
     ${SUBPROJECT_NAME}_window.cpp
+    beep_thread.cpp
 )
 
 target_include_directories(${SUBPROJECT_NAME}

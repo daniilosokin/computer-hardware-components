@@ -2,28 +2,10 @@
 #define APP_C_WINDOW_H_
 
 #include <QMainWindow>
-#include <QThread>
+#include <QLineEdit>
+#include <QPushButton>
 
-#include "shared_data/shared_data.hpp"
-
-class QLineEdit;
-class QPushButton;
-
-class BeepThread : public QThread 
-{
-	Q_OBJECT
-
-public:
-	explicit BeepThread(SharedMemoryManager* shared_mem, QObject* parent = nullptr);
-	void Stop();
-
-protected:
-	void run() override;
-
-private:
-	SharedMemoryManager* shared_mem_;
-	bool should_stop_;
-};
+#include "beep_thread.hpp"
 
 class AppCWindow : public QMainWindow
 {
