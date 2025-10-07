@@ -1,1 +1,1 @@
-add_subdirectory(shared_data)
+add_subdirectory(shared_memory)
