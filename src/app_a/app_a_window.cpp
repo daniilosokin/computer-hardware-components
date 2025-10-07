@@ -232,7 +232,7 @@ void AppAWindow::SetupUi()
 
 	setCentralWidget(central_widget);
 	setWindowTitle("Приложение A");
-	setFixedSize(260, 280);
+	setFixedSize(275, 280);
 }
 
 void AppAWindow::SetupConnections() 
