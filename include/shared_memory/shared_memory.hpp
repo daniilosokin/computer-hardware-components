@@ -13,8 +13,8 @@ struct SharedData
 	bool terminate_all;
 };
 
-constexpr char kSharedMemoryName[] = "kSharedMemoryName";
-constexpr char    kSemaphoreName[] = "MultiAppSemaphore";
+constexpr char kSharedMemoryName[] = "SHMEM-4HD461312DHS";
+constexpr char    kSemaphoreName[] = "SEM-S612DFH8RR78";
 
 class SharedMemory 
 {
