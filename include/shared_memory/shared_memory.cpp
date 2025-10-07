@@ -1,9 +1,9 @@
-#include "shared_data.hpp"
+#include "shared_memory.hpp"
 
 #include <QMessageBox>
 
 SharedMemory::SharedMemory()
-	: shared_mem_(kSharedMemName)
+	: shared_mem_(kSharedMemoryName)
 	, semaphore_(kSemaphoreName, 1)
 	, is_attached_(false)
 {}
