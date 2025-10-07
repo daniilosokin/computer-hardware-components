@@ -13,8 +13,7 @@ AppAWindow::AppAWindow(QWidget* parent)
 	, process_b_(nullptr)
 	, process_c_(nullptr)
 	, manual_termination_b_(false)
-	, beep_enabled_(false)
-	, period_t_(0) 
+	, period_t_(1000) 
 {
 	if (!shared_mem_.Initialize()) 
 	{
@@ -133,13 +132,10 @@ void AppAWindow::TerminateAppC()
 
 void AppAWindow::ToggleBeep() 
 {
-	beep_enabled_ = !beep_enabled_;
-	beep_button_->setText(beep_enabled_ ? "Beep (ON)" : "Beep (OFF)");
-
 	shared_mem_.Lock();
 	SharedData* data = shared_mem_.GetData();
 	if (data) 
-		data->beep_enabled = beep_enabled_;
+		data->beep_enabled = !(data->beep_enabled);
 	shared_mem_.Unlock();
 }
 
@@ -187,7 +183,7 @@ void AppAWindow::UpdateUiFromSharedData()
 		return;
 	}
 
-	int current_t = data->period_t;
+	int     current_t = data->period_t;
 	bool current_beep = data->beep_enabled;
 	shared_mem_.Unlock();
 
@@ -197,33 +193,29 @@ void AppAWindow::UpdateUiFromSharedData()
 		t_edit_->setText(QString::number(current_t));
 	}
 
-	if (beep_enabled_ != current_beep) 
-	{
-		beep_enabled_ = current_beep;
-		beep_button_->setText(beep_enabled_ ? "Beep (ON)" : "Beep (OFF)");
-	}
+	beep_button_->setText(current_beep ? "Beep (ON)" : "Beep (OFF)");
 }
 
 void AppAWindow::SetupUi() 
 {
-	QWidget* central_widget = new QWidget(this);
-	QVBoxLayout* main_layout = new QVBoxLayout(central_widget);
+	QWidget*     central_widget = new QWidget(this);
+	QVBoxLayout*    main_layout = new QVBoxLayout(central_widget);
+	QHBoxLayout*       t_layout = new QHBoxLayout();
 
-	QHBoxLayout* t_layout = new QHBoxLayout();
-	t_layout->addWidget(new QLabel("Период T:"));
-	t_edit_ = new QLineEdit();
-	t_edit_->setPlaceholderText("Введите период T (мс)");
-	t_edit_->setText("1000");
-	t_layout->addWidget(t_edit_);
-	main_layout->addLayout(t_layout);
-
-	apply_button_ = new QPushButton("Применить период Т");
-	start_b_button_ = new QPushButton("Запуск приложения B");
+	            t_edit_ = new QLineEdit();
+	       beep_button_ = new QPushButton("Beep (OFF)");
+	      apply_button_ = new QPushButton("Применить период Т");
+	    start_b_button_ = new QPushButton("Запуск приложения B");
+	    start_c_button_ = new QPushButton("Запуск приложения C");
 	terminate_b_button_ = new QPushButton("Терминация приложения B");
-	start_c_button_ = new QPushButton("Запуск приложения C");
 	terminate_c_button_ = new QPushButton("Терминация приложения C");
-	beep_button_ = new QPushButton("Beep (OFF)");
 
+	t_edit_->setText(QString::number(period_t_));
+
+	t_layout->addWidget(new QLabel("Период T:"));
+	t_layout->addWidget(t_edit_);
+
+	main_layout->addLayout(t_layout);
 	main_layout->addWidget(apply_button_);
 	main_layout->addWidget(start_b_button_);
 	main_layout->addWidget(terminate_b_button_);
@@ -250,11 +242,11 @@ void AppAWindow::SetupTimers()
 {
 	QTimer* monitor_timer = new QTimer(this);
 	connect(monitor_timer, &QTimer::timeout, this, &AppAWindow::MonitorProcesses);
-	monitor_timer->start(1000);
+	monitor_timer->start(100);
 
 	QTimer* update_timer = new QTimer(this);
 	connect(update_timer, &QTimer::timeout, this, &AppAWindow::UpdateUiFromSharedData);
-	update_timer->start(500);
+	update_timer->start(100);
 }
 
 void AppAWindow::closeEvent(QCloseEvent* event)
