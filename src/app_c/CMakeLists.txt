@@ -18,7 +18,7 @@ target_link_libraries(${SUBPROJECT_NAME}
     PRIVATE
         Qt6::Core
         Qt6::Widgets
-        shared_data
+        shared_memory
 )
 
 set_target_properties(${SUBPROJECT_NAME} 
