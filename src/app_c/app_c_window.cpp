@@ -44,9 +44,7 @@ void BeepThread::run()
 		if (beep_enabled)
 		{
 			Beep(1000, 1000);
-
-			if (period_t > 1000) 
-				msleep(period_t - 1000);
+			msleep(period_t);
 		} 
 		else 
 			msleep(100);
