@@ -56,7 +56,7 @@ void BeepThread::run()
 AppCWindow::AppCWindow(QWidget* parent)
 	: QMainWindow(parent)
 	, beep_thread_(nullptr)
-	, period_t_(1000)
+	, period_t_(0)
 {
 	if (!shared_mem_.Initialize()) 
 	{
@@ -108,7 +108,9 @@ void AppCWindow::ApplyPeriodT()
 		shared_mem_.Unlock();
 	} 
 	else 
-		QMessageBox::warning(this, "Ошибка", "Введите корректное значение T");
+		QMessageBox::warning(this,
+							"Ошибка", 
+							"Введите корректное значение T");
 }
 
 void AppCWindow::CheckTermination()

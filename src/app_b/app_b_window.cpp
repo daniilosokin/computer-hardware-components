@@ -11,7 +11,7 @@
 
 AppBWindow::AppBWindow(QWidget* parent)
 	: QMainWindow(parent)
-	, period_t_(1000) 
+	, period_t_(0) 
 {
 	if (!shared_mem_.Initialize()) 
 	{

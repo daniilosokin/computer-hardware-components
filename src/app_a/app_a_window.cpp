@@ -13,7 +13,7 @@ AppAWindow::AppAWindow(QWidget* parent)
 	, process_b_(nullptr)
 	, process_c_(nullptr)
 	, manual_termination_b_(false)
-	, period_t_(1000) 
+	, period_t_(0) 
 {
 	if (!shared_mem_.Initialize()) 
 	{
@@ -26,6 +26,12 @@ AppAWindow::AppAWindow(QWidget* parent)
 	SetupUi();
 	SetupConnections();
 	SetupTimers();
+
+	shared_mem_.Lock();
+	SharedData* data = shared_mem_.GetData();
+	if (data) 
+		data->period_t = 1000;
+	shared_mem_.Unlock();
 }
 
 AppAWindow::~AppAWindow() 
@@ -209,8 +215,6 @@ void AppAWindow::SetupUi()
 	    start_c_button_ = new QPushButton("Запуск приложения C");
 	terminate_b_button_ = new QPushButton("Терминация приложения B");
 	terminate_c_button_ = new QPushButton("Терминация приложения C");
-
-	t_edit_->setText(QString::number(period_t_));
 
 	t_layout->addWidget(new QLabel("Период T:"));
 	t_layout->addWidget(t_edit_);
