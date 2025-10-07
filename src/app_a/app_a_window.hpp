@@ -21,8 +21,8 @@ public:
 private slots:
 	void ApplyPeriodT();
 	void StartAppB();
-	void TerminateAppB();
 	void StartAppC();
+	void TerminateAppB();
 	void TerminateAppC();
 	void ToggleBeep();
 	void MonitorProcesses();
@@ -35,20 +35,21 @@ private:
 
 	void closeEvent(QCloseEvent* event) override;
 
-	QLineEdit* t_edit_;
+	QLineEdit*   t_edit_;
+	QPushButton* beep_button_;
 	QPushButton* apply_button_;
 	QPushButton* start_b_button_;
-	QPushButton* terminate_b_button_;
 	QPushButton* start_c_button_;
 	QPushButton* terminate_c_button_;
-	QPushButton* beep_button_;
+	QPushButton* terminate_b_button_;
 
 	QProcess* process_b_;
 	QProcess* process_c_;
+
 	SharedMemoryManager shared_mem_;
 
+	int  period_t_;
 	bool manual_termination_b_;
-	int period_t_;
 };
 
 #endif  // APP_A_WINDOW_H_
